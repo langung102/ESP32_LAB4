@@ -152,7 +152,7 @@ void ErrorHandlerTask(void *pvParameter)
         if(xQueuePeek(xQueue, &xRequest, (TickType_t)10) == pdPASS) {
             if (isAllRead()) {
                 xQueueReceive(xQueue, &xRequest, (TickType_t)10);
-                printf("\nIgnoring request with task ID: %d\n\n", xRequest.taskID);
+                printf("\n  Ignoring request with task ID: %d\n\n", xRequest.taskID);
                 free(xRequest.data);
                 vTaskDelay(pdMS_TO_TICKS(1000));
             }
